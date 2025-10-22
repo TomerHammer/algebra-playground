@@ -21,7 +21,7 @@ Available commands:
   - load
   - help
   - exit
-> Matrix too large — exceeds 10 million elements.
+> Matrix too large - exceeds 10 million elements.
 Command execution failed. Please try again. Type 'help' for commands and formats
 Available commands:
   - create

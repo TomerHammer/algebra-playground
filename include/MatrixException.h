@@ -34,7 +34,7 @@ public:
 class MatrixTooLarge : public MatrixException {
 public:
     MatrixTooLarge()
-        : MatrixException("Matrix too large — exceeds 10 million elements.") {}
+        : MatrixException("Matrix too large - exceeds 10 million elements.") {}
 };
 
 class MatrixNotSquare : public MatrixException {
