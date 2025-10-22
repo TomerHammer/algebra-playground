@@ -1,0 +1,82 @@
+Algebraic Matrix CLI v1.0
+Available commands:
+  - create
+  - load
+  - help
+  - exit
+> Matrix 'NS' created:
+  Dimensions: 2 x 3
+Available commands:
+  - create
+  - delete
+  - assign
+  - scalar_multiply
+  - transpose
+  - rank
+  - det
+  - inverse
+  - list
+  - show
+  - save
+  - load
+  - help
+  - exit
+> Matrix must be square for the desired operation.
+Command execution failed. Please try again. Type 'help' for commands and formats
+Available commands:
+  - create
+  - delete
+  - assign
+  - scalar_multiply
+  - transpose
+  - rank
+  - det
+  - inverse
+  - list
+  - show
+  - save
+  - load
+  - help
+  - exit
+> Matrix 'Z' created:
+  Dimensions: 3 x 4
+Available commands:
+  - create
+  - delete
+  - assign
+  - scalar_multiply
+  - transpose
+  - rank
+  - det
+  - inverse
+  - add
+  - subtract
+  - multiply
+  - solve
+  - list
+  - show
+  - save
+  - load
+  - help
+  - exit
+> Rank of matrix 'Z' is: 0
+Available commands:
+  - create
+  - delete
+  - assign
+  - scalar_multiply
+  - transpose
+  - rank
+  - det
+  - inverse
+  - add
+  - subtract
+  - multiply
+  - solve
+  - list
+  - show
+  - save
+  - load
+  - help
+  - exit
+> Exiting CLI.

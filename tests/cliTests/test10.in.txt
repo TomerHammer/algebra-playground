@@ -1,0 +1,3 @@
+create Huge 1000 1000
+create Giga 1000 10001
+exit

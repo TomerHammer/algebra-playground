@@ -1,0 +1,30 @@
+# Build files
+build/
+CMakeFiles/
+CMakeCache.txt
+Makefile
+cmake_install.cmake
+
+# Binaries
+bin/
+*.out
+*.exe
+*.o
+*.obj
+*.a
+*.so
+*.dll
+
+# Workspaces and runtime data
+workspaces/*.txt
+
+# Tests outputs
+tests/cliTests/*.out
+
+# macOS system files
+.DS_Store
+
+# IDE files
+.idea/
+.vscode/
+

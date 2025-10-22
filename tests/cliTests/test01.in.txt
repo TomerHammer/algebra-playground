@@ -1,0 +1,3 @@
+create A 3 3
+show A
+exit 

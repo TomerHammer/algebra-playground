@@ -1,0 +1,370 @@
+Algebraic Matrix CLI v1.0
+Available commands:
+  - create
+  - load
+  - help
+  - exit
+> Matrix dimensions must be positive integers.
+Command execution failed. Please try again. Type 'help' for commands and formats
+Available commands:
+  - create
+  - load
+  - help
+  - exit
+> Matrix dimensions must be positive integers.
+Command execution failed. Please try again. Type 'help' for commands and formats
+Available commands:
+  - create
+  - load
+  - help
+  - exit
+> Matrix 'A' created:
+  Dimensions: 2 x 2
+Available commands:
+  - create
+  - delete
+  - assign
+  - scalar_multiply
+  - transpose
+  - rank
+  - det
+  - inverse
+  - list
+  - show
+  - save
+  - load
+  - help
+  - exit
+> Assign value for element in (0, 0)
+> Assign value for element in (0, 1)
+> Assign value for element in (1, 0)
+> Assign value for element in (1, 1)
+> Available commands:
+  - create
+  - delete
+  - assign
+  - scalar_multiply
+  - transpose
+  - rank
+  - det
+  - inverse
+  - list
+  - show
+  - save
+  - load
+  - help
+  - exit
+> Determinant of matrix 'A' is: -2
+Available commands:
+  - create
+  - delete
+  - assign
+  - scalar_multiply
+  - transpose
+  - rank
+  - det
+  - inverse
+  - list
+  - show
+  - save
+  - load
+  - help
+  - exit
+> Matrix 'B' created:
+  Dimensions: 3 x 2
+Available commands:
+  - create
+  - delete
+  - assign
+  - scalar_multiply
+  - transpose
+  - rank
+  - det
+  - inverse
+  - add
+  - subtract
+  - multiply
+  - solve
+  - list
+  - show
+  - save
+  - load
+  - help
+  - exit
+> Assign value for element in (0, 0)
+> Assign value for element in (0, 1)
+> Assign value for element in (1, 0)
+> Assign value for element in (1, 1)
+> Assign value for element in (2, 0)
+> Assign value for element in (2, 1)
+> Available commands:
+  - create
+  - delete
+  - assign
+  - scalar_multiply
+  - transpose
+  - rank
+  - det
+  - inverse
+  - add
+  - subtract
+  - multiply
+  - solve
+  - list
+  - show
+  - save
+  - load
+  - help
+  - exit
+> Sizes do not match. First matrix dimensions: 2x2, second matrix dimensions: 3x2
+Command execution failed. Please try again. Type 'help' for commands and formats
+Available commands:
+  - create
+  - delete
+  - assign
+  - scalar_multiply
+  - transpose
+  - rank
+  - det
+  - inverse
+  - add
+  - subtract
+  - multiply
+  - solve
+  - list
+  - show
+  - save
+  - load
+  - help
+  - exit
+> Sizes do not match. First matrix dimensions: 2x2, second matrix dimensions: 3x2
+Command execution failed. Please try again. Type 'help' for commands and formats
+Available commands:
+  - create
+  - delete
+  - assign
+  - scalar_multiply
+  - transpose
+  - rank
+  - det
+  - inverse
+  - add
+  - subtract
+  - multiply
+  - solve
+  - list
+  - show
+  - save
+  - load
+  - help
+  - exit
+> Sizes do not match. First matrix dimensions: 2x2, second matrix dimensions: 3x2
+Command execution failed. Please try again. Type 'help' for commands and formats
+Available commands:
+  - create
+  - delete
+  - assign
+  - scalar_multiply
+  - transpose
+  - rank
+  - det
+  - inverse
+  - add
+  - subtract
+  - multiply
+  - solve
+  - list
+  - show
+  - save
+  - load
+  - help
+  - exit
+> Available commands:
+  - create
+  - delete
+  - assign
+  - scalar_multiply
+  - transpose
+  - rank
+  - det
+  - inverse
+  - add
+  - subtract
+  - multiply
+  - solve
+  - list
+  - show
+  - save
+  - load
+  - help
+  - exit
+> Matrix 'D' created:
+  Dimensions: 2 x 2
+Available commands:
+  - create
+  - delete
+  - assign
+  - scalar_multiply
+  - transpose
+  - rank
+  - det
+  - inverse
+  - add
+  - subtract
+  - multiply
+  - solve
+  - list
+  - show
+  - save
+  - load
+  - help
+  - exit
+> Assign value for element in (0, 0)
+> Assign value for element in (0, 1)
+> Assign value for element in (1, 0)
+> Assign value for element in (1, 1)
+> Available commands:
+  - create
+  - delete
+  - assign
+  - scalar_multiply
+  - transpose
+  - rank
+  - det
+  - inverse
+  - add
+  - subtract
+  - multiply
+  - solve
+  - list
+  - show
+  - save
+  - load
+  - help
+  - exit
+> Invalid arguments for inverse command.
+Command execution failed. Please try again. Type 'help' for commands and formats
+Available commands:
+  - create
+  - delete
+  - assign
+  - scalar_multiply
+  - transpose
+  - rank
+  - det
+  - inverse
+  - add
+  - subtract
+  - multiply
+  - solve
+  - list
+  - show
+  - save
+  - load
+  - help
+  - exit
+> Matrix is singular and cannot be inverted.
+Command execution failed. Please try again. Type 'help' for commands and formats
+Available commands:
+  - create
+  - delete
+  - assign
+  - scalar_multiply
+  - transpose
+  - rank
+  - det
+  - inverse
+  - add
+  - subtract
+  - multiply
+  - solve
+  - list
+  - show
+  - save
+  - load
+  - help
+  - exit
+> Matrix 'Z' not found in workspace.
+Command execution failed. Please try again. Type 'help' for commands and formats
+Available commands:
+  - create
+  - delete
+  - assign
+  - scalar_multiply
+  - transpose
+  - rank
+  - det
+  - inverse
+  - add
+  - subtract
+  - multiply
+  - solve
+  - list
+  - show
+  - save
+  - load
+  - help
+  - exit
+> Matrix 'Z' not found in workspace.
+Command execution failed. Please try again. Type 'help' for commands and formats
+Available commands:
+  - create
+  - delete
+  - assign
+  - scalar_multiply
+  - transpose
+  - rank
+  - det
+  - inverse
+  - add
+  - subtract
+  - multiply
+  - solve
+  - list
+  - show
+  - save
+  - load
+  - help
+  - exit
+> Workspace saved successfully as 'workspaces/workspace.txt'.
+Available commands:
+  - create
+  - delete
+  - assign
+  - scalar_multiply
+  - transpose
+  - rank
+  - det
+  - inverse
+  - add
+  - subtract
+  - multiply
+  - solve
+  - list
+  - show
+  - save
+  - load
+  - help
+  - exit
+> Could not open workspace file 'workspaces/not_existing.txt'.
+Command execution failed. Please try again. Type 'help' for commands and formats
+Available commands:
+  - create
+  - delete
+  - assign
+  - scalar_multiply
+  - transpose
+  - rank
+  - det
+  - inverse
+  - add
+  - subtract
+  - multiply
+  - solve
+  - list
+  - show
+  - save
+  - load
+  - help
+  - exit
+> Exiting CLI.

@@ -1,0 +1,44 @@
+Algebraic Matrix CLI v1.0
+Available commands:
+  - create
+  - load
+  - help
+  - exit
+> Matrix 'A' created:
+  Dimensions: 3 x 3
+Available commands:
+  - create
+  - delete
+  - assign
+  - scalar_multiply
+  - transpose
+  - rank
+  - det
+  - inverse
+  - list
+  - show
+  - save
+  - load
+  - help
+  - exit
+> Matrix 'A':
+|  0.000|  0.000|  0.000|
+|  0.000|  0.000|  0.000|
+|  0.000|  0.000|  0.000|
+
+Available commands:
+  - create
+  - delete
+  - assign
+  - scalar_multiply
+  - transpose
+  - rank
+  - det
+  - inverse
+  - list
+  - show
+  - save
+  - load
+  - help
+  - exit
+> Exiting CLI.

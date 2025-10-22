@@ -1,0 +1,12 @@
+create A 2 2
+assign A
+1
+2
+3
+4
+create B 2 3
+add C A B    
+delete Z      
+assign A 1    
+create Bad -2 2
+exit

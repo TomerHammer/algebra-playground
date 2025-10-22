@@ -1,0 +1,5 @@
+create NS 2 3
+det NS
+create Z 3 4
+rank Z
+exit

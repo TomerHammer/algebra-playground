@@ -1,0 +1,32 @@
+create A 2 2
+assign A
+1
+2
+3
+4
+create B 2 2
+assign B
+5
+6
+7
+8
+add C A B
+subtract D B A
+multiply E A B
+scalar_multiply F A 2
+transpose F
+rank A
+det A
+inverse H A
+show H
+create b 2 1
+assign b
+1
+2
+solve X A b
+list
+save workspace_success
+load workspace_success
+help
+delete B
+exit

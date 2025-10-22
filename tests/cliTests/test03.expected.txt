@@ -1,0 +1,213 @@
+Algebraic Matrix CLI v1.0
+Available commands:
+  - create
+  - load
+  - help
+  - exit
+> Matrix 'A' created:
+  Dimensions: 2 x 2
+Available commands:
+  - create
+  - delete
+  - assign
+  - scalar_multiply
+  - transpose
+  - rank
+  - det
+  - inverse
+  - list
+  - show
+  - save
+  - load
+  - help
+  - exit
+> Assign value for element in (0, 0)
+> Assign value for element in (0, 1)
+> Assign value for element in (1, 0)
+> Assign value for element in (1, 1)
+> Available commands:
+  - create
+  - delete
+  - assign
+  - scalar_multiply
+  - transpose
+  - rank
+  - det
+  - inverse
+  - list
+  - show
+  - save
+  - load
+  - help
+  - exit
+> Matrix 'B' created:
+  Dimensions: 2 x 2
+Available commands:
+  - create
+  - delete
+  - assign
+  - scalar_multiply
+  - transpose
+  - rank
+  - det
+  - inverse
+  - add
+  - subtract
+  - multiply
+  - solve
+  - list
+  - show
+  - save
+  - load
+  - help
+  - exit
+> Assign value for element in (0, 0)
+> Assign value for element in (0, 1)
+> Assign value for element in (1, 0)
+> Assign value for element in (1, 1)
+> Available commands:
+  - create
+  - delete
+  - assign
+  - scalar_multiply
+  - transpose
+  - rank
+  - det
+  - inverse
+  - add
+  - subtract
+  - multiply
+  - solve
+  - list
+  - show
+  - save
+  - load
+  - help
+  - exit
+> Available commands:
+  - create
+  - delete
+  - assign
+  - scalar_multiply
+  - transpose
+  - rank
+  - det
+  - inverse
+  - add
+  - subtract
+  - multiply
+  - solve
+  - list
+  - show
+  - save
+  - load
+  - help
+  - exit
+> Matrix 'C':
+|  6.000|  8.000|
+| 10.000| 12.000|
+
+Available commands:
+  - create
+  - delete
+  - assign
+  - scalar_multiply
+  - transpose
+  - rank
+  - det
+  - inverse
+  - add
+  - subtract
+  - multiply
+  - solve
+  - list
+  - show
+  - save
+  - load
+  - help
+  - exit
+> Available commands:
+  - create
+  - delete
+  - assign
+  - scalar_multiply
+  - transpose
+  - rank
+  - det
+  - inverse
+  - add
+  - subtract
+  - multiply
+  - solve
+  - list
+  - show
+  - save
+  - load
+  - help
+  - exit
+> Matrix 'D':
+|  4.000|  4.000|
+|  4.000|  4.000|
+
+Available commands:
+  - create
+  - delete
+  - assign
+  - scalar_multiply
+  - transpose
+  - rank
+  - det
+  - inverse
+  - add
+  - subtract
+  - multiply
+  - solve
+  - list
+  - show
+  - save
+  - load
+  - help
+  - exit
+> Available commands:
+  - create
+  - delete
+  - assign
+  - scalar_multiply
+  - transpose
+  - rank
+  - det
+  - inverse
+  - add
+  - subtract
+  - multiply
+  - solve
+  - list
+  - show
+  - save
+  - load
+  - help
+  - exit
+> Matrix 'D':
+|  4.000|  4.000|
+|  4.000|  4.000|
+
+Available commands:
+  - create
+  - delete
+  - assign
+  - scalar_multiply
+  - transpose
+  - rank
+  - det
+  - inverse
+  - add
+  - subtract
+  - multiply
+  - solve
+  - list
+  - show
+  - save
+  - load
+  - help
+  - exit
+> Exiting CLI.

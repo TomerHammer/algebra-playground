@@ -1,0 +1,16 @@
+create A 2 2
+assign A
+2
+1
+5
+3
+det A
+inverse Ainv A
+show Ainv
+create b 2 1
+assign b
+1
+2
+solve x A b
+show x
+exit

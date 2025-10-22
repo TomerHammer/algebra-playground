@@ -1,0 +1,68 @@
+Algebraic Matrix CLI v1.0
+Available commands:
+  - create
+  - load
+  - help
+  - exit
+> Matrix 'A' created:
+  Dimensions: 3 x 3
+Available commands:
+  - create
+  - delete
+  - assign
+  - scalar_multiply
+  - transpose
+  - rank
+  - det
+  - inverse
+  - list
+  - show
+  - save
+  - load
+  - help
+  - exit
+> Assign value for element in (0, 0)
+> Assign value for element in (0, 1)
+> Assign value for element in (0, 2)
+> Assign value for element in (1, 0)
+> Assign value for element in (1, 1)
+> Assign value for element in (1, 2)
+> Assign value for element in (2, 0)
+> Assign value for element in (2, 1)
+> Assign value for element in (2, 2)
+> Available commands:
+  - create
+  - delete
+  - assign
+  - scalar_multiply
+  - transpose
+  - rank
+  - det
+  - inverse
+  - list
+  - show
+  - save
+  - load
+  - help
+  - exit
+> Matrix 'A':
+|  1.000|  2.000|  3.000|
+|  4.000|  5.000|  6.000|
+|  7.000|  8.000|  9.000|
+
+Available commands:
+  - create
+  - delete
+  - assign
+  - scalar_multiply
+  - transpose
+  - rank
+  - det
+  - inverse
+  - list
+  - show
+  - save
+  - load
+  - help
+  - exit
+> Exiting CLI.

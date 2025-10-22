@@ -1,0 +1,65 @@
+Algebraic Matrix CLI v1.0
+Available commands:
+  - create
+  - load
+  - help
+  - exit
+> Matrix 'Big' created:
+  Dimensions: 3 x 3
+Available commands:
+  - create
+  - delete
+  - assign
+  - scalar_multiply
+  - transpose
+  - rank
+  - det
+  - inverse
+  - list
+  - show
+  - save
+  - load
+  - help
+  - exit
+> Assign value for element in (0, 0)
+> Assign value for element in (0, 1)
+> Assign value for element in (0, 2)
+> Assign value for element in (1, 0)
+> Assign value for element in (1, 1)
+> Assign value for element in (1, 2)
+> Assign value for element in (2, 0)
+> Assign value for element in (2, 1)
+> Assign value for element in (2, 2)
+> Available commands:
+  - create
+  - delete
+  - assign
+  - scalar_multiply
+  - transpose
+  - rank
+  - det
+  - inverse
+  - list
+  - show
+  - save
+  - load
+  - help
+  - exit
+> Matrix is singular and cannot be inverted.
+Command execution failed. Please try again. Type 'help' for commands and formats
+Available commands:
+  - create
+  - delete
+  - assign
+  - scalar_multiply
+  - transpose
+  - rank
+  - det
+  - inverse
+  - list
+  - show
+  - save
+  - load
+  - help
+  - exit
+> Exiting CLI.
