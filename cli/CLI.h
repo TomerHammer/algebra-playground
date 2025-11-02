@@ -82,6 +82,7 @@ private:
     bool executeDeterminantCommand(std::istringstream& iss) const;
     bool executeInverseCommand(std::istringstream& iss);
     bool executeSolveCommand(std::istringstream& iss);
+    bool execute3DVectorRotationCommand(std::istringstream& iss);
 
     // ========================= GENERIC HELPER UTILITIES =========================
 

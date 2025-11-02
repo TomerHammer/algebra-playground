@@ -82,7 +82,12 @@ CLI::CLI()
           {"solve",
               { [this](std::istringstream& iss){ return executeSolveCommand(iss); },
                 "Solve the linear system Ax=b and store the result.",
-                "solve <resultName> <matrixA> <columnB>" }}
+                "solve <resultName> <matrixA> <columnB>" }},
+            {"3d_rotate",
+              { [this](std::istringstream& iss){ return execute3DVectorRotationCommand(iss); },
+                "Rotate a 3D vector around the axis by given degrees.",
+                "3d_rotate <vectorName> <angleDegreesX> <angleDegreesY> <angleDegreesZ" }}
+
       },
       running(RUNNING)
 {};
@@ -347,4 +352,17 @@ bool CLI::executeSolveCommand(std::istringstream& iss) {
             return workspace.solveMatrix(r, A, b);
         },
         "Invalid arguments for solve command.");
+}
+
+bool CLI::execute3DVectorRotationCommand(std::istringstream &iss) {
+
+    std::string matName;
+    double angleDegreesX, angleDegreesY, angleDegreesZ;
+    iss >> matName >> angleDegreesX >> angleDegreesY >> angleDegreesZ;
+    if (matName.empty() || iss.fail() || !checkForTrailingInput(iss)) {
+        std::cout << "Invalid arguments for 3D vector rotation command." << std::endl;
+        return false;
+    }
+        return workspace.rotate3DVector(matName, angleDegreesX, angleDegreesY, angleDegreesZ);
+
 }
