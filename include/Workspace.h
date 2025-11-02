@@ -29,6 +29,11 @@ private:
      */
     std::unordered_map<std::string, Matrix> workspace;
 
+    static Matrix XRotationMatrix(double angleDegrees);
+    static Matrix YRotationMatrix(double angleDegrees);
+    static Matrix ZRotationMatrix(double angleDegrees);
+    static Matrix createRotationMatrix(double angleDegreesX, double angleDegreesY, double angleDegreesZ);
+
 public:
     // ========================= CONSTRUCTION =========================
 
@@ -262,4 +267,11 @@ public:
      */
     bool handleReadOnlyMatrixOp(const std::string& matName,
                                 const std::function<void(const Matrix&)>& op) const;
+
+
+
+    bool rotate3DVector(const std::string& vecName,
+                        double angleDegreesX,
+                        double angleDegreesY,
+                        double angleDegreesZ);
 };
