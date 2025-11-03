@@ -29,9 +29,35 @@ private:
      */
     std::unordered_map<std::string, Matrix> workspace;
 
+    // ========================= INTERNAL HELPERS =========================
+    /**
+     *
+     * @param angleDegrees the angel in degrees
+     * @return The rotation matrix around the X axis.
+     */
     static Matrix XRotationMatrix(double angleDegrees);
+    /**
+     *
+     * @param angleDegrees the angel in degrees
+     * @return The rotation matrix around the Y axis.
+     */
     static Matrix YRotationMatrix(double angleDegrees);
+    /**
+     *
+     * @param angleDegrees the angel in degrees
+     * @return The rotation matrix around the Z axis.
+     */
     static Matrix ZRotationMatrix(double angleDegrees);
+    /**
+     * @brief Creates a combined rotation matrix for 3D vectors.
+     *
+     * The rotation is applied in the order: X-axis, then Y-axis, then Z-axis.
+     *
+     * @param angleDegreesX Rotation angle around the X-axis in degrees.
+     * @param angleDegreesY Rotation angle around the Y-axis in degrees.
+     * @param angleDegreesZ Rotation angle around the Z-axis in degrees.
+     * @return The combined rotation matrix.
+     */
     static Matrix createRotationMatrix(double angleDegreesX, double angleDegreesY, double angleDegreesZ);
 
 public:
@@ -269,7 +295,15 @@ public:
                                 const std::function<void(const Matrix&)>& op) const;
 
 
-
+    /**
+     * @brief Rotates a 3D vector matrix around the X, Y, and Z axes respectively.
+     *
+     * @param vecName  the name of the 3D vector matrix to rotate
+     * @param angleDegreesX the rotation angle around the X axis in degrees
+     * @param angleDegreesY the rotation angle around the Y axis in degrees
+     * @param angleDegreesZ the rotation angle around the Z axis in degrees
+     * @return  True if rotation succeeded, false otherwise
+     */
     bool rotate3DVector(const std::string& vecName,
                         double angleDegreesX,
                         double angleDegreesY,

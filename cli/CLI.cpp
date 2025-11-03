@@ -130,8 +130,8 @@ void CLI::checkAvailableCommands() {
         available_commands = {
             "create", "delete","assign",
             "scalar_multiply","transpose","rank",
-            "det","inverse","add","subtract","multiply",
-            "3d_rotate","solve","list","show","save","load",
+            "det","inverse","3d_rotate","add","subtract",
+            "multiply","solve","list","show","save","load",
             "help", "exit"
           };
     } else {
