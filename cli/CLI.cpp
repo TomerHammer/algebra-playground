@@ -85,7 +85,7 @@ CLI::CLI()
                 "solve <resultName> <matrixA> <columnB>" }},
             {"3d_rotate",
               { [this](std::istringstream& iss){ return execute3DVectorRotationCommand(iss); },
-                "Rotate a 3D vector around the axis by given degrees.",
+                "Rotate a 3D vector(3x1) around the axis by given degrees.",
                 "3d_rotate <vectorName> <angleDegreesX> <angleDegreesY> <angleDegreesZ" }}
 
       },

@@ -439,7 +439,7 @@ Available commands:
   - exit
 > Available commands:
   - 3d_rotate : 3d_rotate <vectorName> <angleDegreesX> <angleDegreesY> <angleDegreesZ
-      Rotate a 3D vector around the axis by given degrees.
+      Rotate a 3D vector(3x1) around the axis by given degrees.
 
   - solve : solve <resultName> <matrixA> <columnB>
       Solve the linear system Ax=b and store the result.
