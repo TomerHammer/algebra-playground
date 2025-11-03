@@ -4,8 +4,8 @@ Available commands:
   - load
   - help
   - exit
-> Matrix 'A' created:
-  Dimensions: 2 x 2
+> Matrix 'vec' created:
+  Dimensions: 3 x 1
 Available commands:
   - create
   - delete
@@ -23,9 +23,8 @@ Available commands:
   - help
   - exit
 > Assign value for element in (0, 0)
-> Assign value for element in (0, 1)
 > Assign value for element in (1, 0)
-> Assign value for element in (1, 1)
+> Assign value for element in (2, 0)
 > Available commands:
   - create
   - delete
@@ -42,9 +41,7 @@ Available commands:
   - load
   - help
   - exit
-> Matrix 'B' created:
-  Dimensions: 2 x 3
-Available commands:
+> Available commands:
   - create
   - delete
   - assign
@@ -54,18 +51,17 @@ Available commands:
   - det
   - inverse
   - 3d_rotate
-  - add
-  - subtract
-  - multiply
-  - solve
   - list
   - show
   - save
   - load
   - help
   - exit
-> Sizes do not match. First matrix dimensions: 2x2, second matrix dimensions: 2x3
-Command execution failed. Please try again. Type 'help' for commands and formats
+> Matrix 'vec':
+|  0.000|
+|  0.000|
+| -1.000|
+
 Available commands:
   - create
   - delete
@@ -76,19 +72,16 @@ Available commands:
   - det
   - inverse
   - 3d_rotate
-  - add
-  - subtract
-  - multiply
-  - solve
   - list
   - show
   - save
   - load
   - help
   - exit
-> Matrix 'Z' not found in workspace.
-Command execution failed. Please try again. Type 'help' for commands and formats
-Available commands:
+> Assign value for element in (0, 0)
+> Assign value for element in (1, 0)
+> Assign value for element in (2, 0)
+> Available commands:
   - create
   - delete
   - assign
@@ -98,19 +91,13 @@ Available commands:
   - det
   - inverse
   - 3d_rotate
-  - add
-  - subtract
-  - multiply
-  - solve
   - list
   - show
   - save
   - load
   - help
   - exit
-> Invalid arguments for assign command.
-Command execution failed. Please try again. Type 'help' for commands and formats
-Available commands:
+> Available commands:
   - create
   - delete
   - assign
@@ -120,18 +107,17 @@ Available commands:
   - det
   - inverse
   - 3d_rotate
-  - add
-  - subtract
-  - multiply
-  - solve
   - list
   - show
   - save
   - load
   - help
   - exit
-> Matrix dimensions must be positive integers.
-Command execution failed. Please try again. Type 'help' for commands and formats
+> Matrix 'vec':
+|  2.561|
+|  4.435|
+|  0.879|
+
 Available commands:
   - create
   - delete
@@ -142,10 +128,6 @@ Available commands:
   - det
   - inverse
   - 3d_rotate
-  - add
-  - subtract
-  - multiply
-  - solve
   - list
   - show
   - save

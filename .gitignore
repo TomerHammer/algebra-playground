@@ -19,7 +19,7 @@ bin/
 workspaces/*.txt
 
 # Tests outputs
-tests/cliTests/*.out
+tests/cliTests/*.out.txt
 
 # macOS system files
 .DS_Store
