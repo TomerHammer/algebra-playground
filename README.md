@@ -17,7 +17,8 @@ It reflects a strong motivation to grow as a developer and continuously learn fr
 - Create and manage matrices interactively  
 - Perform matrix operations: addition, subtraction, multiplication, transpose  
 - Compute determinant, rank, and inverse  
-- Solve linear systems of equations (Ax = b)  
+- Solve linear systems of equations (Ax = b)
+- Rotate a 3×1 vector around the X, Y, and Z axes by specified angles (in degrees).
 - Save and load entire workspaces  
 - Includes automated unit and integration tests  
 
@@ -44,6 +45,7 @@ Available commands:
   - rank
   - det
   - inverse
+  - 3d_rotate
   - list
   - show
   - save
