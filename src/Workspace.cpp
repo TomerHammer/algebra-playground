@@ -270,3 +270,48 @@ bool Workspace::handleReadOnlyMatrixOp(
     }
     return true;
 }
+
+Matrix Workspace::XRotationMatrix(double angleDegrees) {
+    Matrix rotation(3,3);
+    double angleRadians = angleDegrees * M_PI / 180.0;
+    rotation(0,0) = 1; rotation(0,1) = 0;                     rotation(0,2) = 0;
+    rotation(1,0) = 0; rotation(1,1) = cos(angleRadians);     rotation(1,2) = -sin(angleRadians);
+    rotation(2,0) = 0; rotation(2,1) = sin(angleRadians);     rotation(2,2) = cos(angleRadians);
+    return rotation;
+}
+
+Matrix Workspace::YRotationMatrix(double angleDegrees) {
+    Matrix rotation(3,3);
+    double angleRadians = angleDegrees * M_PI / 180.0;
+    rotation(0,0) = cos(angleRadians);     rotation(0,1) = 0; rotation(0,2) = sin(angleRadians);
+    rotation(1,0) = 0;                     rotation(1,1) = 1; rotation(1,2) = 0;
+    rotation(2,0) = -sin(angleRadians);    rotation(2,1) = 0; rotation(2,2) = cos(angleRadians);
+    return rotation;
+}
+
+Matrix Workspace::ZRotationMatrix(double angleDegrees) {
+    Matrix rotation(3,3);
+    double angleRadians = angleDegrees * M_PI / 180.0;
+    rotation(0,0) = cos(angleRadians);     rotation(0,1) = -sin(angleRadians);    rotation(0,2) = 0;
+    rotation(1,0) = sin(angleRadians);     rotation(1,1) = cos(angleRadians);     rotation(1,2) = 0;
+    rotation(2,0) = 0;                     rotation(2,1) = 0;                     rotation(2,2) = 1;
+    return rotation;
+}
+
+Matrix Workspace::createRotationMatrix(double angleDegreesX, double angleDegreesY, double angleDegreesZ){
+    Matrix rotationX = XRotationMatrix(angleDegreesX);
+    Matrix rotationY = YRotationMatrix(angleDegreesY);
+    Matrix rotationZ = ZRotationMatrix(angleDegreesZ);
+    Matrix rotation = rotationZ * rotationY * rotationX;
+    return rotation;
+}
+
+bool Workspace::rotate3DVector(const std::string& vecName,
+                        double angleDegreesX,
+                        double angleDegreesY,
+                        double angleDegreesZ) {
+    return handleSingleMatrixOp(vecName,[this, angleDegreesX, angleDegreesY, angleDegreesZ](Matrix& vec) {
+        Matrix rotation = createRotationMatrix(angleDegreesX, angleDegreesY, angleDegreesZ);
+        vec = rotation * vec;
+    });
+}
