@@ -349,6 +349,25 @@ void testOperators() {
     std::cout << "testOperators passed!" << std::endl;
 }
 
+void testVectorRotation(){
+    Matrix rot(3,1);
+    rot(0,0) = 1; rot(1,0) = 0; rot(2,0) = 0; // x-axis unit vector
+    Matrix rotated = rot.rotate3D(0,0,90); // Rotate 90 degrees around Z-axis
+    // Expected result is (0,1,0)
+    assert(std::abs(rotated(0,0) - 0.0) == 0.0);
+    assert(std::abs(rotated(1,0) - 1.0) == 0.0);
+    assert(std::abs(rotated(2,0) - 0.0) == 0.0);
+
+    rot(0,0) = 3; rot(1,0) = 1; rot(2,0) = 2; // A vector
+    rotated = rot.rotate3D(90,0,0); // Rotate 90 degrees around X-axis
+    // Expected result is (3,-2,1)
+    assert(std::abs(rotated(0,0) - 3.0) == 0.0);
+    assert(std::abs(rotated(1,0) - -2.0) == 0.0);
+    assert(std::abs(rotated(2,0) - 1.0) == 0.0);
+
+    std::cout << "test3DRotation passed!" << std::endl;
+}
+
 void testE2E() {
     Matrix mat1(2,2,1.0);
     Matrix mat2(2,2,1.0);
@@ -409,6 +428,7 @@ int main() {
     testIdentityAndInverse();
     testSolveUniqueNoAndInfinite();
     testOperators();
+    testVectorRotation();
     testE2E();
     return 0;
 }

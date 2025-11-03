@@ -15,6 +15,7 @@ Available commands:
   - rank
   - det
   - inverse
+  - 3d_rotate
   - list
   - show
   - save
@@ -32,6 +33,7 @@ Available commands:
   - rank
   - det
   - inverse
+  - 3d_rotate
   - list
   - show
   - save

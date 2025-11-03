@@ -270,3 +270,14 @@ bool Workspace::handleReadOnlyMatrixOp(
     }
     return true;
 }
+
+
+
+bool Workspace::rotate3DVector(const std::string& vecName,
+                        double angleDegreesX,
+                        double angleDegreesY,
+                        double angleDegreesZ) {
+    return handleSingleMatrixOp(vecName,[this, vecName,angleDegreesX, angleDegreesY, angleDegreesZ](Matrix& vec) {
+            workspace[vecName] = vec.rotate3D(angleDegreesX, angleDegreesY, angleDegreesZ);
+    });
+}
