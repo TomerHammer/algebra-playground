@@ -28,5 +28,5 @@ tests/cliTests/*.out.txt
 .idea/
 .vscode/
 
-# Utillities
+# Thumbnails and presentation
 style/
