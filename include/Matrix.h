@@ -54,6 +54,40 @@ private:
      */
     [[nodiscard]] Matrix augment(const Matrix& right) const;
 
+    /**
+     *
+     * @param angleDegrees the angel in degrees
+     * @return The rotation matrix around the X axis.
+     */
+    static Matrix XRotationMatrix(double angleDegrees);
+    /**
+     *
+     * @param angleDegrees the angel in degrees
+     * @return The rotation matrix around the Y axis.
+     */
+    static Matrix YRotationMatrix(double angleDegrees);
+    /**
+     *
+     * @param angleDegrees the angel in degrees
+     * @return The rotation matrix around the Z axis.
+     */
+    static Matrix ZRotationMatrix(double angleDegrees);
+    /**
+     * @brief Creates a combined rotation matrix for 3D vectors.
+     *
+     * The rotation is applied in the order: X-axis, then Y-axis, then Z-axis.
+     *
+     * @param angleDegreesX Rotation angle around the X-axis in degrees.
+     * @param angleDegreesY Rotation angle around the Y-axis in degrees.
+     * @param angleDegreesZ Rotation angle around the Z-axis in degrees.
+     * @return The combined rotation matrix.
+     */
+    static Matrix createRotationMatrix(double angleDegreesX, double angleDegreesY, double angleDegreesZ);
+
+
+
+
+
 public:
     // ==== Constructors & Destructor ====
 
@@ -237,6 +271,8 @@ public:
      * @throws MatrixDimensionMismatch if dimensions are invalid.
      */
     [[nodiscard]] SolveResult solve(const Matrix& b) const;
+
+    Matrix rotate3D(double angleDegreesX, double angleDegreesY, double angleDegreesZ);
 };
 
 /**
@@ -268,3 +304,4 @@ struct SolveResult {
     SolveStatus status; ///< Solution status.
     Matrix x;           ///< Solution matrix (valid only if status == Unique).
 };
+
