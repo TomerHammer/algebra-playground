@@ -123,7 +123,7 @@ void CLI::checkAvailableCommands() {
     if (matrix_count == 1) {
         available_commands = {
             "create","delete","assign","scalar_multiply",
-            "transpose","rank","det","inverse",
+            "transpose","rank","det","inverse","3d_rotate",
             "list", "show","save","load","help","exit"
         };
     } else if (matrix_count >= 2) {
@@ -131,7 +131,7 @@ void CLI::checkAvailableCommands() {
             "create", "delete","assign",
             "scalar_multiply","transpose","rank",
             "det","inverse","add","subtract","multiply",
-            "solve","list","show","save","load",
+            "3d_rotate","solve","list","show","save","load",
             "help", "exit"
           };
     } else {
