@@ -1,5 +1,8 @@
 # 🧮 Algebra Playground
 
+[![GitHub release (latest by date)](https://img.shields.io/github/v/release/TomerHammer/algebra-playground?style=for-the-badge)](https://github.com/TomerHammer/algebra-playground/releases)
+[![GitHub license](https://img.shields.io/github/license/TomerHammer/algebra-playground?style=for-the-badge)](LICENSE)
+
 A **C++17 command-line application** for performing and exploring **matrix algebra operations**.  
 This project was developed to practice **object-oriented programming**, **modular design**, and **numerical problem solving** in C++.  
 It reflects a strong motivation to grow as a developer and continuously learn from new challenges and experiences.
