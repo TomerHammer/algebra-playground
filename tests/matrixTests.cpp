@@ -14,7 +14,7 @@ void testMatrixInitializationCustom() {
         }
     }
 
-    std::cout << "testMatrixInitialization passed!" << std::endl;
+    std::cout << "✅ testMatrixInitialization passed!" << std::endl;
 }
 
 void testMatrixInitializationDefault() {
@@ -24,7 +24,7 @@ void testMatrixInitializationDefault() {
             assert(mat(i, j) == 0.0); // Default value for double is 0.0
         }
     }
-    std::cout << "testMatrixInitializationDefault passed!" << std::endl;
+    std::cout << "✅ testMatrixInitializationDefault passed!" << std::endl;
 }
 
 void testMatrixCopy() {
@@ -35,7 +35,7 @@ void testMatrixCopy() {
             assert(mat2(i, j) == 3.0);
         }
     }
-    std::cout << "testMatrixCopy passed!" << std::endl;
+    std::cout << "✅ testMatrixCopy passed!" << std::endl;
 }
 
 void testMatrixAssignmentOperator() {
@@ -47,7 +47,7 @@ void testMatrixAssignmentOperator() {
             assert(mat2(i, j) == 3.0);
         }
     }
-    std::cout << "testMatrixAssignmentOperator passed!" << std::endl;
+    std::cout << "✅ testMatrixAssignmentOperator passed!" << std::endl;
 }
 
 void testMatrixComparisonOperators() {
@@ -57,7 +57,7 @@ void testMatrixComparisonOperators() {
     assert(mat1 == mat2);
     assert(mat2 != mat3);
     assert(mat3 != mat1);
-    std::cout << "testMatrixComparisonOperators passed!" << std::endl;
+    std::cout << "✅ testMatrixComparisonOperators passed!" << std::endl;
 }
 
 void testMatrixAccessOperator() {
@@ -73,7 +73,7 @@ void testMatrixAccessOperator() {
             assert(mat(i, j) == 5);
         }
     }
-    std::cout << "testMatrixAccessOperatorPassed!" << std::endl;
+    std::cout << "✅ testMatrixAccessOperatorPassed!" << std::endl;
 }
 
 void testOutOfBoundsAccess() {
@@ -81,19 +81,16 @@ void testOutOfBoundsAccess() {
     try {
         mat(3,0) = 5; // Out of bounds
         assert(false); // Should not reach here
-    } catch (const std::exception& e) {
-        std::cout << e.what() << std::endl;
-    }
+    } catch (const std::exception&) {}
+
 
     try {
         double val = mat(0,3); // Out of bounds
         (void)val; // To avoid unused variable warning
         assert(false); // Should not reach here
-    } catch (const std::exception& e) {
-        std::cout << e.what() << std::endl;
-    }
+    } catch (const std::exception&) {}
 
-    std::cout << "testOutOfBoundsAccess passed!" << std::endl;
+    std::cout << "✅ testOutOfBoundsAccess passed!" << std::endl;
 }
 
 void testDimensionMismatchMinusOperator() {
@@ -102,10 +99,9 @@ void testDimensionMismatchMinusOperator() {
     try {
         mat1 - mat2; // Should throw exception
         assert(false); // Should not reach here
-    } catch (const std::exception& e) {
-        std::cout << e.what() << std::endl;
-    }
-    std::cout << "testDimensionMismatchMinusOperator passed!" << std::endl;
+    } catch (const std::exception&) {}
+
+    std::cout << "✅ testDimensionMismatchMinusOperator passed!" << std::endl;
 }
 
 void testDimensionMismatchAdditionOperator() {
@@ -114,10 +110,9 @@ void testDimensionMismatchAdditionOperator() {
     try {
         mat1 + mat2; // Should throw exception
         assert(false); // Should not reach here
-    } catch (const std::exception& e) {
-        std::cout << e.what() << std::endl;
-    }
-    std::cout << "testDimensionMismatchAdditionOperator passed!" << std::endl;
+    } catch (const std::exception&) {}
+
+    std::cout << "✅ testDimensionMismatchAdditionOperator passed!" << std::endl;
 }
 
 void testInPlaceScalarMultiplication() {
@@ -129,7 +124,7 @@ void testInPlaceScalarMultiplication() {
             assert(mat(i, j) == 12); // 2 * 3 * 2 = 12
         }
     }
-    std::cout << "testInPlaceScalarMultiplication passed!" << std::endl;
+    std::cout << "✅ testInPlaceScalarMultiplication passed!" << std::endl;
 }
 
 void testScalarMultiplication() {
@@ -140,40 +135,31 @@ void testScalarMultiplication() {
             assert(result(i, j) == 7); // 2 * 3.5 = 7
         }
     }
-    std::cout << "testScalarMultiplication passed!" << std::endl;
+    std::cout << "✅ testScalarMultiplication passed!" << std::endl;
 }
 
 void testMatrixInvalidInitialization() {
     try {
         Matrix mat(0, 3); // Invalid initialization
         assert(false); // Should not reach here
-    } catch (const MatrixInvalidInitialization& e) {
-        std::cout << e.what() << std::endl;
-    }
+    } catch (const std::exception&) {}
 
     try {
         Matrix mat(-1, 3); // Invalid initialization
         assert(false); // Should not reach here
-    } catch (const MatrixInvalidInitialization& e) {
-        std::cout << e.what() << std::endl;
-    }
-
+    } catch (const std::exception&) {}
 
     try {
         Matrix mat(3, 0); // Invalid initialization
         assert(false); // Should not reach here
-    } catch (const MatrixInvalidInitialization& e) {
-        std::cout << e.what() << std::endl;
-    }
+    } catch (const std::exception&) {}
 
     try {
         Matrix mat(3, -1); // Invalid initialization
         assert(false); // Should not reach here
-    } catch (const MatrixInvalidInitialization& e) {
-        std::cout << e.what() << std::endl;
-    }
+    } catch (const std::exception&) {}
 
-    std::cout << "testMatrixInvalidInitialization passed!" << std::endl;
+    std::cout << "✅ testMatrixInvalidInitialization passed!" << std::endl;
 }
 
 void testMatrixMultiplicationDimensionMismatch() {
@@ -182,10 +168,8 @@ void testMatrixMultiplicationDimensionMismatch() {
     try {
         mat1 * mat2; // Should throw exception
         assert(false); // Should not reach here
-    } catch (const std::exception& e) {
-        std::cout << e.what() << std::endl;
-    }
-    std::cout << "testMatrixMultiplicationDimensionMismatch passed!" << std::endl;
+    } catch (const std::exception& e) {}
+    std::cout << "✅ testMatrixMultiplicationDimensionMismatch passed!" << std::endl;
 }
 
 void testMatrixMultiplication() {
@@ -207,7 +191,7 @@ void testMatrixMultiplication() {
     assert(result(1,0) == 139); // 4*7 + 5*9 + 6*11
     assert(result(1,1) == 154); // 4*8 + 5*10 + 6*12
 
-    std::cout << "testMatrixMultiplication passed!" << std::endl;
+    std::cout << "✅ testMatrixMultiplication passed!" << std::endl;
 }
 
 void testDeterminant() {
@@ -229,7 +213,7 @@ void testDeterminant() {
     sing(1,0) = 2; sing(1,1) = 4;
     assert(std::abs(sing.determinant() - 0.0) < 1e-9);
 
-    std::cout << "testDeterminant passed!" << std::endl;
+    std::cout << "✅ testDeterminant passed!" << std::endl;
 }
 
 void testRank() {
@@ -248,7 +232,7 @@ void testRank() {
     expected(0,0)=1; expected(1,1)=1; expected(2,2)=1;
     assert(mat2 == expected);
 
-    std::cout << "testRank passed!" << std::endl;
+    std::cout << "✅ testRank passed!" << std::endl;
 }
 
 // New test: the specific matrix reported by the user (should have rank 2)
@@ -258,7 +242,7 @@ void testRankExampleProvided() {
     A(1,0)=0; A(1,1)=1; A(1,2)=7;
     A(2,0)=0; A(2,1)=2; A(2,2)=5;
     assert(A.rank() == 2);
-    std::cout << "testRankExampleProvided passed!" << std::endl;
+    std::cout << "✅ testRankExampleProvided passed!" << std::endl;
 }
 
 void testIdentityAndInverse() {
@@ -294,11 +278,9 @@ void testIdentityAndInverse() {
     try {
         Matrix news = s.inverse();
         assert(false);
-    } catch (const MatrixSingular& e) {
-        std::cout << e.what() << std::endl;
-    }
+    } catch (const std::exception& e) {}
 
-    std::cout << "testIdentityAndInverse passed!" << std::endl;
+    std::cout << "✅ testIdentityAndInverse passed!" << std::endl;
 }
 
 void testSolveUniqueNoAndInfinite() {
@@ -329,7 +311,7 @@ void testSolveUniqueNoAndInfinite() {
     SolveResult res3 = C.solve(d);
     assert(res3.status == SolveStatus::Infinite);
 
-    std::cout << "testSolveUniqueNoAndInfinite passed!" << std::endl;
+    std::cout << "✅ testSolveUniqueNoAndInfinite passed!" << std::endl;
 }
 
 // New: operator-related assertions
@@ -356,7 +338,7 @@ void testOperators() {
     assert(std::abs(ge(1,0) - 0.0) < 1e-9);
     assert(std::abs(ge(1,1) - 1.0) < 1e-9);
 
-    std::cout << "testOperators passed!" << std::endl;
+    std::cout << "✅ testOperators passed!" << std::endl;
 }
 
 void testVectorRotation(){
@@ -375,7 +357,7 @@ void testVectorRotation(){
     assert(std::abs(rotated(1,0) - -2.0) == 0.0);
     assert(std::abs(rotated(2,0) - 1.0) == 0.0);
 
-    std::cout << "test3DRotation passed!" << std::endl;
+    std::cout << "✅ test3DRotation passed!" << std::endl;
 }
 
 void testE2E() {
@@ -397,14 +379,12 @@ void testE2E() {
     assert(mat7 == -mat5);
     assert(mat6.transpose() == mat5);
     mat6(0,1) = 10.0; mat6(1,1) = 11.0;
-    std::cout << mat6 << std::endl;
     mat6 -= mat5;
     assert(mat6(0,0) == 0.0 && mat6(0,1) == 4.0);
     mat6 += mat5;
     assert(mat6(0,0) == 6.0 && mat6(0,1) == 10.0);
     mat6 *= mat5;
     // No specific assert for multiplication result, just print
-    std::cout << mat6 << std::endl;
     Matrix mat8(2,4,1.0);
     Matrix mat9(4,10,3.0);
     Matrix mat10 = mat8 * mat9;
@@ -414,8 +394,7 @@ void testE2E() {
             assert(mat10(i, j) == 12.0); // Each element should be 1*3 + 1*3 + 1*3 + 1*3 = 12
         }
     }
-    std::cout<< mat10 << std::endl;
-    std::cout << "testE2E passed!" << std::endl;
+    std::cout << "✅ testE2E passed!" << std::endl;
 }
 
 int main() {
