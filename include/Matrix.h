@@ -84,6 +84,25 @@ private:
      */
     static Matrix createRotationMatrix(double angleDegreesX, double angleDegreesY, double angleDegreesZ);
 
+    /**
+     * @brief Convert matrix to row-echelon form (forward elimination only).
+     *
+     * This helper performs partial pivoting, row swaps, and forward elimination
+     * to produce an upper-triangular (row-echelon) form. It can optionally
+     * throw on encountering a zero pivot depending on the caller's needs.
+     *
+     * @param right Optional right-hand side matrix that will be transformed in
+     *              parallel (used for solving/inversion). If provided, it will
+     *              be mutated to keep rows aligned with swaps/eliminations.
+     * @param throwOnZeroPivot If true, encountering a (near-)zero pivot will
+     *                         throw MatrixSingular. If false, the algorithm
+     *                         will skip that pivot (useful for determinant/rank
+     *                         computations).
+     * @param swapCount Optional output for number of row swaps performed.
+     * @return Row-echelon form of this matrix (a copy). If `right` was
+     *         provided it is mutated to its row-echelon counterpart as well.
+     */
+    [[nodiscard]] Matrix forwardElimination(Matrix* right, bool throwOnZeroPivot, int* swapCount = nullptr) const;
 
 
 
@@ -94,7 +113,7 @@ public:
     /**
      * @brief Default constructor. Creates an empty 0x0 matrix.
      */
-    Matrix() = default;
+    Matrix() : _matrix(), _rows(0), _cols(0) {}
 
     /**
      * @brief Construct a matrix of given size and initial value.
@@ -272,7 +291,7 @@ public:
      */
     [[nodiscard]] SolveResult solve(const Matrix& b) const;
 
-    Matrix rotate3D(double angleDegreesX, double angleDegreesY, double angleDegreesZ);
+    Matrix rotate3D(double angleDegreesX, double angleDegreesY, double angleDegreesZ) const;
 };
 
 /**
@@ -304,4 +323,3 @@ struct SolveResult {
     SolveStatus status; ///< Solution status.
     Matrix x;           ///< Solution matrix (valid only if status == Unique).
 };
-

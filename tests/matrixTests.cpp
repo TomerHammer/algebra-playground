@@ -251,6 +251,16 @@ void testRank() {
     std::cout << "testRank passed!" << std::endl;
 }
 
+// New test: the specific matrix reported by the user (should have rank 2)
+void testRankExampleProvided() {
+    Matrix A(3,3);
+    A(0,0)=0; A(0,1)=1; A(0,2)=9;
+    A(1,0)=0; A(1,1)=1; A(1,2)=7;
+    A(2,0)=0; A(2,1)=2; A(2,2)=5;
+    assert(A.rank() == 2);
+    std::cout << "testRankExampleProvided passed!" << std::endl;
+}
+
 void testIdentityAndInverse() {
     Matrix id = Matrix::identity(3);
     for (int i = 0; i < 3; ++i) {
@@ -425,6 +435,7 @@ int main() {
     testMatrixMultiplication();
     testDeterminant();
     testRank();
+    testRankExampleProvided();
     testIdentityAndInverse();
     testSolveUniqueNoAndInfinite();
     testOperators();
