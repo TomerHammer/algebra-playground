@@ -168,78 +168,103 @@ void Matrix::swapRows(int row1, int row2) {
 
 
 Matrix Matrix::gaussianElimination(Matrix* right, bool fullReduction, int* swapCount) const {
+	bool throwOnZeroPivot = (right != nullptr) || fullReduction;
+
+	// Perform forward elimination and count swaps
+	Matrix result = this->forwardElimination(right, throwOnZeroPivot, swapCount);
+
+	if (!fullReduction) {
+		// Return the upper-triangular
+		return result;
+	}
+
+	// Full reduction (: normalize pivot rows and eliminate above
+	const int n = result.getRows();
+	const int m = result.getCols();
+	const int rCols = right ? right->getCols() : 0;
+
+	for (int i = 0; i < n; ++i) {
+		// Find pivot column in this row
+		int pivotCol = -1;
+		for (int j = 0; j < m; ++j) {
+			if (std::abs(result(i, j)) > EPSILON) { pivotCol = j; break; }
+		}
+		if (pivotCol == -1) continue; // zero row
+
+		double pivot = result(i, pivotCol);
+		// Normalize pivot row
+		for (int j = pivotCol; j < m; ++j)
+			result(i, j) /= pivot;
+
+		if (right) {
+			for (int j = 0; j < rCols; ++j)
+				(*right)(i, j) /= pivot;
+		}
+
+		// Eliminate other rows using this pivot
+		for (int k = 0; k < n; ++k) {
+			if (k == i) continue;
+			double c = result(k, pivotCol);
+			if (std::abs(c) < EPSILON) continue;
+
+			for (int j = pivotCol; j < m; ++j)
+				result(k, j) -= c * result(i, j);
+
+			if (right) {
+				for (int j = 0; j < rCols; ++j)
+					(*right)(k, j) -= c * (*right)(i, j);
+			}
+		}
+	}
+
+	return result;
+}
+
+
+Matrix Matrix::forwardElimination(Matrix* right, bool throwOnZeroPivot, int* swapCount) const {
 	Matrix result(*this);
 	const int n = result.getRows();
 	const int m = result.getCols();
 	int localSwapCount = 0;
-
 	int lim = std::min(n, m);
-	for (int i = 0; i < lim; i++) {
-		// Pivot selection
+
+	for (int i = 0; i < lim; ++i) {
+		// partial pivoting
 		double maxEl = std::abs(result(i, i));
 		int maxRow = i;
-		for (int k = i + 1; k < n; k++) {
-			if (std::abs(result(k, i)) > maxEl) {
-				maxEl = std::abs(result(k, i));
-				maxRow = k;
-			}
+		for (int k = i + 1; k < n; ++k) {
+			double v = std::abs(result(k, i));
+			if (v > maxEl) { maxEl = v; maxRow = k; }
 		}
-		// Handle zero (or near-zero) pivot
+
+		// Handle near-zero pivot
 		if (std::abs(result(maxRow, i)) < EPSILON) {
+			if (throwOnZeroPivot)
+				throw MatrixSingular();
+			// Skip this column/pivot; continue to next column
+			continue;
 
-			if (!right && !fullReduction) { // Determinant / rank calculation can continue
-				continue;
-			}
-
-			throw MatrixSingular(); // Singular matrix for solving/inversion
 		}
 
-
-		// Swap rows apply to right side too if present
+		// Swap rows if needed (and apply same to right)
 		if (maxRow != i) {
 			result.swapRows(i, maxRow);
 			if (right) right->swapRows(i, maxRow);
 			localSwapCount++;
 		}
 
-		// Normalize pivot row if full reduction
-		double pivot = result(i, i);
-		if (fullReduction) {
-			for (int j = 0; j < m; j++) result(i, j) /= pivot;
-			if (right)
-				for (int j = 0; j < right->getCols(); j++)
-					(*right)(i, j) /= pivot;
-		}
-
-		// Eliminate below pivot (forward)
-		const int rCols = right ? right->getCols() : 0;
-		for (int k = i + 1; k < n; k++) {
+		// Eliminate below pivot
+		for (int k = i + 1; k < n; ++k) {
 			double c = -result(k, i) / result(i, i);
-			for (int j = i; j < m; j++) result(k, j) += c * result(i, j);
-			if (right)
-				for (int j = 0; j < rCols; j++)
-					(*right)(k, j) += c * (*right)(i, j);
-		}
-
-
-		// Eliminate above pivot, full reduction
-		if (fullReduction) {
-			for (int k = 0; k < i; k++) {
-				double c = -result(k, i);
-				for (int j = 0; j < m; j++) result(k, j) += c * result(i, j);
-				if (right)
-					for (int j = 0; j < right->getCols(); j++)
-						(*right)(k, j) += c * (*right)(i, j);
-			}
+			for (int j = i; j < m; ++j) result(k, j) += c * result(i, j);
+			if (right) for (int j = 0; j < right->getCols(); ++j)
+				(*right)(k, j) += c * (*right)(i, j);
 		}
 	}
 
-	if (swapCount) // return swap count for determinant sign adjustment
-		*swapCount = localSwapCount;
-
+	if (swapCount) *swapCount = localSwapCount;
 	return result;
 }
-
 
 
 double Matrix::determinant() const {
@@ -265,35 +290,52 @@ double Matrix::determinant() const {
 
 
 int Matrix::rank() const {
-	Matrix result = this->gaussianElimination(NOT_SOLVE,NO_REDUCTION,NO_DET);
-	int rank = 0;
-	for (int i = 0; i < result.getRows(); i++) {
-		bool nonZeroRow = false;
-		for (int j = 0; j < result.getCols(); j++) {
-			if (std::abs(result(i, j)) > EPSILON) {
-				nonZeroRow = true;
-				break;
-			}
-		}
-		if (nonZeroRow) {
-			rank++;
+
+	Matrix echelon = this->forwardElimination(NOT_SOLVE, false, NO_DET);
+	const int rows = echelon.getRows();
+	const int cols = echelon.getCols();
+
+	// Count non-zero rows
+	int nonZeroRows = 0;
+	for (int i = 0; i < rows; ++i) {
+		for (int j = 0; j < cols; ++j) {
+			if (std::abs(echelon(i, j)) > EPSILON) { ++nonZeroRows; break; }
 		}
 	}
-	return rank;
+
+	// Count non-zero columns
+	int nonZeroCols = 0;
+	for (int j = 0; j < cols; ++j) {
+		for (int i = 0; i < rows; ++i) {
+			if (std::abs(echelon(i, j)) > EPSILON) { ++nonZeroCols; break; }
+		}
+	}
+
+	// return the minimum of non-zero rows and columns
+	return std::min(nonZeroRows, nonZeroCols);
 }
 
 Matrix Matrix::inverse() const {
 	if (_rows != _cols)
 		throw MatrixNotSquare();
 
-	Matrix right = Matrix::identity(_rows);
+	// Build augmented matrix [A | I]
+	Matrix augmented = this->augment(Matrix::identity(_rows));
 
-	 // Might throw MatrixSingular
-	this->gaussianElimination(&right, FULL_REDUCTION, NO_DET);
+	// Perform full reduction on the augmented matrix. This will throw
+	// MatrixSingular if the matrix is not invertible.
+	Matrix reduced = augmented.gaussianElimination(NOT_SOLVE, FULL_REDUCTION, NO_DET);
 
-	return right; // Now right contains A⁻¹
+	// Extract right half as the inverse
+	Matrix inv(_rows, _cols);
+	for (int i = 0; i < _rows; ++i) {
+		for (int j = 0; j < _cols; ++j) {
+			inv(i, j) = reduced(i, _cols + j);
+		}
+	}
+
+	return inv;
 }
-
 
 Matrix Matrix::identity(int size) {
 	if (size <= 0) {
@@ -383,7 +425,7 @@ Matrix Matrix::createRotationMatrix(double angleDegreesX, double angleDegreesY, 
 	return rotation;
 }
 
-Matrix Matrix::rotate3D(double angleDegreesX, double angleDegreesY, double angleDegreesZ) {
+Matrix Matrix::rotate3D(double angleDegreesX, double angleDegreesY, double angleDegreesZ) const {
 	Matrix rotation = createRotationMatrix(angleDegreesX, angleDegreesY, angleDegreesZ);
 	return rotation * (*this);
 }
